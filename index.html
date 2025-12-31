@@ -64,6 +64,11 @@
             50% { opacity: 0.5; }
         }
 
+        @keyframes shine {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+
         .float { animation: float 3s ease-in-out infinite; }
         .fade-in { animation: fadeIn 0.6s ease-out forwards; }
         .sparkle { animation: sparkle 2s ease-in-out infinite; }
@@ -78,27 +83,31 @@
 
         /* Header */
         .header {
-            background: linear-gradient(90deg, #991b1b 0%, #b91c1c 50%, #991b1b 100%);
+            background-image: url('styles/bg.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
             border-bottom: 4px solid #ca8a04;
             box-shadow: 0 10px 30px rgba(0,0,0,0.5);
             position: relative;
+            padding: 40px;
             z-index: 20;
         }
 
         .header-content {
-            max-width: 1024px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 3rem 1rem;
+            padding: 2rem 1rem;
             position: relative;
             z-index: 10;
         }
 
         .header-title {
             text-align: center;
-            font-size: 2.5rem;
+            font-size: 3rem;
             font-weight: bold;
             color: #fef3c7;
-            margin-bottom: 1.5rem;
+            margin-bottom: 1rem;
             letter-spacing: 0.1em;
             text-shadow: 0 2px 10px rgba(0,0,0,0.3);
         }
@@ -106,7 +115,7 @@
         .scroll-box {
             background: linear-gradient(135deg, #fef3c7 0%, #fefce8 50%, #fef3c7 100%);
             border-radius: 1rem;
-            padding: 2rem;
+            padding: 1.5rem;
             border: 4px solid #a16207;
             box-shadow: 0 20px 50px rgba(0,0,0,0.5);
             position: relative;
@@ -145,7 +154,7 @@
             align-items: center;
             justify-content: center;
             color: white;
-            font-size: 0.75rem;
+            font-size: 0.875rem;
             font-weight: bold;
             border: 2px solid #991b1b;
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
@@ -156,154 +165,374 @@
             text-align: center;
             color: #1f2937;
             line-height: 1.8;
-            font-size: 1.125rem;
+            font-size: 1.25rem;
+        }
+        
+        .edit-notice-btn {
+            position: absolute;
+            right: 3.5rem;
+            top: -1rem;
+            width: 2.5rem;
+            height: 2.5rem;
+            background: #3b82f6;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1rem;
+            font-weight: bold;
+            border: 2px solid #1e40af;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            cursor: pointer;
+            transition: all 0.3s;
+            z-index: 10;
+        }
+        
+        .edit-notice-btn:hover {
+            background: #2563eb;
+            transform: scale(1.1);
         }
 
         /* Main Content */
         .main-content {
-            max-width: 1024px;
+            max-width: 1280px;
             margin: 0 auto;
-            padding: 3rem 1rem;
+            padding: 1.5rem 1rem;
             position: relative;
             z-index: 20;
         }
 
-        .ad-container {
-            background: linear-gradient(135deg, #fef3c7 0%, #fefce8 50%, #fef3c7 100%);
-            border-radius: 1.5rem;
-            padding: 2.5rem;
-            border: 8px double #991b1b;
-            box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+        /* 重点广告卡片 */
+        .vip-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .vip-card {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #7f1d1d 100%);
+            border-radius: 1rem;
+            padding: 1.5rem;
+            border: 5px solid #fbbf24;
+            box-shadow: 0 20px 60px rgba(251, 191, 36, 0.4), 0 0 60px rgba(251, 191, 36, 0.2);
             position: relative;
+            overflow: hidden;
         }
 
-        .corner-decoration {
+        .vip-card::before {
+            content: '';
             position: absolute;
-            width: 3rem;
-            height: 3rem;
-            border: 4px solid #ca8a04;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%);
+            animation: shine 3s infinite;
         }
 
-        .corner-tl { top: 0; left: 0; border-right: none; border-bottom: none; border-radius: 1.5rem 0 0 0; }
-        .corner-tr { top: 0; right: 0; border-left: none; border-bottom: none; border-radius: 0 1.5rem 0 0; }
-        .corner-bl { bottom: 0; left: 0; border-right: none; border-top: none; border-radius: 0 0 0 1.5rem; }
-        .corner-br { bottom: 0; right: 0; border-left: none; border-top: none; border-radius: 0 0 1.5rem 0; }
-
-        .ad-title {
-            text-align: center;
-            font-size: 2.25rem;
-            font-weight: bold;
-            color: #991b1b;
-            margin-bottom: 2rem;
-            letter-spacing: 0.1em;
-        }
-
-        .divider {
+        .vip-card-header {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
-            margin: 2rem 0;
-        }
-
-        .divider-line {
-            flex: 1;
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, #ef4444 50%, transparent 100%);
-        }
-
-        .divider-icon {
-            font-size: 1.875rem;
-        }
-
-        /* Ads */
-        .ad-list {
-            margin: 2rem 0;
-        }
-
-        .ad-category {
-            font-size: 1.125rem;
-            color: #374151;
-            font-weight: 600;
-            margin-bottom: 0.75rem;
-            margin-top: 1rem;
-        }
-
-        .ad-category.vip {
-            color: #991b1b;
-            font-weight: bold;
-        }
-
-        .ad-item {
+            justify-content: space-between;
+            margin-bottom: 1rem;
             position: relative;
-            padding: 0.5rem 0;
-            margin: 1rem 0;
+            z-index: 1;
         }
 
-        .ad-content {
-            white-space: pre-wrap;
-            line-height: 1.8;
-            color: #1f2937;
-            font-size: 1.125rem;
+        .vip-card-title-wrapper {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.75rem;
         }
 
-        .ad-content.vip {
-            color: #991b1b;
-            font-size: 1.5rem;
+        .vip-card-title {
+            font-size: 2.5rem;
             font-weight: bold;
-            text-shadow: 0 1px 3px rgba(153, 27, 27, 0.3);
+            color: #fef3c7;
+            text-shadow: 0 0 20px rgba(251, 191, 36, 0.8);
+            letter-spacing: 0.2em;
         }
 
-        .ad-item-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent 0%, #fca5a5 50%, transparent 100%);
-            margin: 1rem 0;
+        .vip-card-icon {
+            font-size: 2.5rem;
+            animation: pulse 1.5s ease-in-out infinite;
         }
 
-        .ad-actions {
+        .vip-card-actions {
             position: absolute;
-            right: -0.5rem;
-            top: -0.5rem;
-            display: none;
+            right: 0;
+            display: flex;
             gap: 0.5rem;
         }
 
-        .ad-item:hover .ad-actions {
+        .vip-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* 板块卡片 */
+        .category-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+
+        .category-card {
+            border-radius: 1rem;
+            padding: 1.25rem;
+            border: 4px solid;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            position: relative;
+            transition: transform 0.3s, box-shadow 0.3s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .category-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+        }
+
+        /* 侠缘 - 粉红色系 */
+        .category-card.xiayuan {
+            background: linear-gradient(135deg, #fce7f3 0%, #fbcfe8 100%);
+            border-color: #ec4899;
+        }
+
+        /* 结义 - 蓝色系 */
+        .category-card.jieyi {
+            background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+            border-color: #3b82f6;
+        }
+
+        /* 师门 - 紫色系 */
+        .category-card.shimen {
+            background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+            border-color: #a855f7;
+        }
+
+        /* 徒弟 - 绿色系 */
+        .category-card.tudi {
+            background: linear-gradient(135deg, #d1fae5 0%, #a7f3d0 100%);
+            border-color: #10b981;
+        }
+
+        /* 成功案例 - 橙黄色系 */
+        .category-card.success {
+            background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+            border-color: #f59e0b;
+        }
+
+        .success-section {
+            margin-top: 1.5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 1rem;
+            padding-bottom: 0.75rem;
+            border-bottom: 3px solid;
+            flex-shrink: 0;
+        }
+
+        .category-card.xiayuan .category-header { border-color: #ec4899; }
+        .category-card.jieyi .category-header { border-color: #3b82f6; }
+        .category-card.shimen .category-header { border-color: #a855f7; }
+        .category-card.tudi .category-header { border-color: #10b981; }
+        .category-card.success .category-header { border-color: #f59e0b; }
+
+        .category-title {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #1f2937;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .category-icon {
+            font-size: 2.25rem;
+        }
+
+        .category-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .btn-icon {
+            width: 2.5rem;
+            height: 2.5rem;
+            border-radius: 50%;
+            border: 2px solid;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.125rem;
+            transition: all 0.3s;
+            background: white;
+        }
+
+        .btn-icon:hover {
+            transform: scale(1.1);
+        }
+
+        .category-card.xiayuan .btn-icon { border-color: #ec4899; color: #ec4899; }
+        .category-card.jieyi .btn-icon { border-color: #3b82f6; color: #3b82f6; }
+        .category-card.shimen .btn-icon { border-color: #a855f7; color: #a855f7; }
+        .category-card.tudi .btn-icon { border-color: #10b981; color: #10b981; }
+        .category-card.success .btn-icon { border-color: #f59e0b; color: #f59e0b; }
+
+        .category-card.xiayuan .btn-icon:hover { background: #ec4899; color: white; }
+        .category-card.jieyi .btn-icon:hover { background: #3b82f6; color: white; }
+        .category-card.shimen .btn-icon:hover { background: #a855f7; color: white; }
+        .category-card.tudi .btn-icon:hover { background: #10b981; color: white; }
+        .category-card.success .btn-icon:hover { background: #f59e0b; color: white; }
+
+        .tags-container {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            max-height: 200px;
+            overflow-y: auto;
+            overflow-x: hidden;
+            padding-right: 0.25rem;
+        }
+
+        .tags-container::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .tags-container::-webkit-scrollbar-track {
+            background: rgba(0,0,0,0.1);
+            border-radius: 3px;
+        }
+
+        .tags-container::-webkit-scrollbar-thumb {
+            background: rgba(0,0,0,0.3);
+            border-radius: 3px;
+        }
+
+        .tags-container::-webkit-scrollbar-thumb:hover {
+            background: rgba(0,0,0,0.5);
+        }
+
+        .tags-empty {
+            width: 100%;
+            text-align: center;
+            color: #6b7280;
+            font-size: 1.125rem;
+            padding: 2rem 0;
+        }
+
+        /* Tag样式 - 根据VIP等级 */
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.75rem 1.25rem;
+            border-radius: 9999px;
+            font-size: 1.125rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s;
+            position: relative;
+            border: 2px solid;
+            white-space: nowrap;
+        }
+
+        .tag:hover {
+            transform: scale(1.05);
+        }
+
+        /* VIP等级0 - 普通 */
+        .tag.level-0 {
+            background: white;
+            color: #374151;
+            border-color: #d1d5db;
+            font-size: 1.125rem;
+        }
+
+        /* VIP等级1 - 淡红 */
+        .tag.level-1 {
+            background: linear-gradient(135deg, #fee2e2 0%, #fecaca 100%);
+            color: #991b1b;
+            border-color: #fca5a5;
+            font-size: 1.25rem;
+        }
+
+        /* VIP等级2 - 红色 */
+        .tag.level-2 {
+            background: linear-gradient(135deg, #fca5a5 0%, #f87171 100%);
+            color: #7f1d1d;
+            border-color: #dc2626;
+            font-size: 1.375rem;
+        }
+
+        /* VIP等级3 - 深红 */
+        .tag.level-3 {
+            background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+            color: #fef3c7;
+            border-color: #7f1d1d;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 15px rgba(220, 38, 38, 0.4);
+        }
+
+        /* VIP等级4 - 金红闪耀 */
+        .tag.level-4 {
+            background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 50%, #7f1d1d 100%);
+            color: #fef3c7;
+            border-color: #fbbf24;
+            font-size: 1.75rem;
+            box-shadow: 0 6px 20px rgba(251, 191, 36, 0.6);
+            text-shadow: 0 0 10px rgba(251, 191, 36, 0.8);
+        }
+
+        .tag-actions {
+            display: none;
+            gap: 0.25rem;
+        }
+
+        .tag:hover .tag-actions {
             display: flex;
         }
 
-        .btn-action {
-            padding: 0.5rem;
-            border-radius: 0.5rem;
-            border: 2px solid;
+        .tag-btn {
+            width: 1.75rem;
+            height: 1.75rem;
+            border-radius: 50%;
+            border: none;
             cursor: pointer;
-            transition: all 0.3s;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             font-size: 0.875rem;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            transition: all 0.2s;
         }
 
-        .btn-edit {
-            background: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
-            border-color: #1d4ed8;
+        .tag-btn-edit {
+            background: #3b82f6;
             color: white;
         }
 
-        .btn-edit:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
-        }
-
-        .btn-delete {
-            background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
-            border-color: #991b1b;
+        .tag-btn-delete {
+            background: #ef4444;
             color: white;
         }
 
-        .btn-delete:hover {
-            transform: scale(1.1);
-            background: linear-gradient(135deg, #dc2626 0%, #991b1b 100%);
+        .tag-btn:hover {
+            transform: scale(1.2);
         }
 
-        /* Buttons */
+        /* 操作按钮 */
         .action-buttons {
             display: flex;
             justify-content: center;
@@ -313,25 +542,26 @@
         }
 
         .btn {
-            padding: 1.25rem 3rem;
+            padding: 1rem 2rem;
             border-radius: 9999px;
-            border: 4px solid #ca8a04;
+            border: 3px solid;
             cursor: pointer;
             font-size: 1.25rem;
             font-weight: bold;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.3);
             letter-spacing: 0.05em;
         }
 
         .btn-primary {
             background: linear-gradient(90deg, #991b1b 0%, #dc2626 50%, #991b1b 100%);
             color: #fef3c7;
+            border-color: #fbbf24;
         }
 
         .btn-primary:hover {
-            transform: scale(1.1);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.5);
+            transform: scale(1.05);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.4);
         }
 
         .btn-secondary {
@@ -429,7 +659,8 @@
         }
 
         .form-input,
-        .form-textarea {
+        .form-textarea,
+        .form-select {
             width: 100%;
             padding: 0.75rem 1rem;
             border: 2px solid #fca5a5;
@@ -440,30 +671,52 @@
         }
 
         .form-input:focus,
-        .form-textarea:focus {
+        .form-textarea:focus,
+        .form-select:focus {
             outline: none;
             border-color: #991b1b;
         }
 
-        .form-textarea {
-            min-height: 6rem;
-            resize: vertical;
-        }
-
-        .form-checkbox-group {
+        .vip-level-selector {
             display: flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: linear-gradient(90deg, #fee2e2 0%, #fef3c7 100%);
-            padding: 1rem;
-            border-radius: 0.5rem;
-            border: 2px solid #fca5a5;
+            gap: 0.5rem;
+            flex-wrap: wrap;
         }
 
-        .form-checkbox {
-            width: 1.25rem;
-            height: 1.25rem;
+        .vip-level-option {
+            flex: 1;
+            min-width: 80px;
+            padding: 0.75rem;
+            border: 2px solid #d1d5db;
+            border-radius: 0.5rem;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-weight: bold;
         }
+
+        .vip-level-option:hover {
+            transform: scale(1.05);
+        }
+
+        .vip-level-option.active {
+            border-width: 3px;
+        }
+
+        .vip-level-option.level-0 { background: white; color: #374151; }
+        .vip-level-option.level-0.active { border-color: #374151; }
+
+        .vip-level-option.level-1 { background: #fee2e2; color: #991b1b; }
+        .vip-level-option.level-1.active { border-color: #991b1b; }
+
+        .vip-level-option.level-2 { background: #fca5a5; color: #7f1d1d; }
+        .vip-level-option.level-2.active { border-color: #7f1d1d; }
+
+        .vip-level-option.level-3 { background: #dc2626; color: #fef3c7; }
+        .vip-level-option.level-3.active { border-color: #7f1d1d; }
+
+        .vip-level-option.level-4 { background: #7f1d1d; color: #fef3c7; border-color: #fbbf24; }
+        .vip-level-option.level-4.active { border-color: #fbbf24; box-shadow: 0 0 20px rgba(251, 191, 36, 0.5); }
 
         .form-buttons {
             display: flex;
@@ -524,12 +777,12 @@
         }
 
         .btn-music {
-            width: 4rem;
-            height: 4rem;
+            width: 3.5rem;
+            height: 3.5rem;
             border-radius: 50%;
-            border: 4px solid #ca8a04;
+            border: 3px solid #ca8a04;
             cursor: pointer;
-            font-size: 1.75rem;
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -562,18 +815,23 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
 
-        /* Edit Form */
-        .edit-form {
-            background: linear-gradient(135deg, #fef3c7 0%, #fefce8 50%, #fee2e2 100%);
-            border: 4px solid #fca5a5;
-            border-radius: 0.75rem;
-            padding: 1.25rem;
-            margin: 1rem 0;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
         .hidden {
             display: none !important;
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .category-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header-title {
+                font-size: 2rem;
+            }
+            
+            .vip-card-title {
+                font-size: 1.75rem;
+            }
         }
     </style>
 </head>
@@ -590,32 +848,27 @@
     <div class="decoration float" style="left: 3rem; top: 25%; font-size: 4rem; opacity: 0.6; animation-delay: 0.8s;">🏮</div>
     <div class="decoration float" style="right: 3rem; top: 25%; font-size: 4rem; opacity: 0.6; animation-delay: 1.8s;">🏮</div>
     
-    <div class="decoration float" style="left: 2rem; top: 50%; font-size: 3.5rem; opacity: 0.6;">🎋</div>
-    <div class="decoration float" style="right: 2rem; top: 60%; font-size: 3.5rem; opacity: 0.6; animation-delay: 1.5s;">🎋</div>
-    
-    <div class="decoration float" style="bottom: 3rem; left: 15%; font-size: 3rem; opacity: 0.7; animation-delay: 0.3s;">🌸</div>
-    <div class="decoration float" style="bottom: 5rem; right: 25%; font-size: 2.5rem; opacity: 0.7; animation-delay: 1.2s;">🌸</div>
-    
     <div class="decoration sparkle" style="top: 25%; left: 8%; font-size: 1.875rem; color: #fbbf24;">✨</div>
     <div class="decoration sparkle" style="top: 60%; right: 12%; font-size: 1.875rem; color: #fbbf24; animation-delay: 0.7s;">✨</div>
 
     <!-- Header -->
-    <header class="header fade-in">
+    <header class="header fade-in" id="captureArea">
         <div class="decoration float" style="position: absolute; top: -2rem; left: 50%; transform: translateX(-50%); font-size: 4rem; z-index: 15;">🏮</div>
         
         <div class="header-content">
             <h1 class="header-title">
-                <span style="font-size: 2rem;">🎊</span>
-                <span style="font-size: 1.5rem; margin: 0 0.5rem;">✨</span>
+                <span style="font-size: 2.5rem;">🎊</span>
+                <span style="font-size: 2rem; margin: 0 0.5rem;">✨</span>
                 欢迎加入权威暖心窝子群
-                <span style="font-size: 1.5rem; margin: 0 0.5rem;">✨</span>
-                <span style="font-size: 2rem;">🎊</span>
+                <span style="font-size: 2rem; margin: 0 0.5rem;">✨</span>
+                <span style="font-size: 2.5rem;">🎊</span>
             </h1>
             
             <div class="scroll-box">
                 <div class="seal">群公告</div>
-                <p class="header-desc">
-                    这里应有尽有，全员鬼才，多才多艺，上能跟工拍照打本调号，下能弹琴唱歌仰天长啸，让我们一起上班摸鱼下班畅游，愉快养老！
+                <button class="edit-notice-btn" onclick="editNotice()" title="编辑群公告">✏️</button>
+                <p class="header-desc" id="noticeText">
+                    这里应有尽有，全员鬼才，多才多艺，上能黑工拍照打本调号，下能弹琴唱歌仰天长啸，让我们一起上班摸鱼下班畅游，愉快养老！
                 </p>
             </div>
         </div>
@@ -623,43 +876,117 @@
 
     <!-- Main Content -->
     <main class="main-content">
-        <div class="ad-container fade-in" style="animation-delay: 0.3s;">
-            <div class="corner-decoration corner-tl"></div>
-            <div class="corner-decoration corner-tr"></div>
-            <div class="corner-decoration corner-bl"></div>
-            <div class="corner-decoration corner-br"></div>
-            
-            <h2 class="ad-title">
-                <span style="font-size: 3rem;" class="pulse-anim">▶</span>
-                插播本群广告
-                <span style="font-size: 3rem;" class="pulse-anim">◀</span>
-            </h2>
-            
-            <div class="divider">
-                <span class="divider-icon">🌸</span>
-                <div class="divider-line"></div>
-                <span class="divider-icon">🎋</span>
-                <div class="divider-line"></div>
-                <span class="divider-icon">🌸</span>
-            </div>
-
-            <div id="adList" class="ad-list">
-                <!-- 广告列表将动态生成 -->
-            </div>
-            
-            <div class="divider">
-                <span class="divider-icon">🌸</span>
-                <div class="divider-line"></div>
-                <span class="divider-icon">🎋</span>
-                <div class="divider-line"></div>
-                <span class="divider-icon">🌸</span>
+        <!-- 重点广告区域 -->
+        <div class="vip-section fade-in" style="animation-delay: 0.2s;">
+            <div class="vip-card">
+                <div class="vip-card-header">
+                    <div class="vip-card-actions">
+                        <button class="btn-icon" style="border-color: #fbbf24; color: #fef3c7; background: rgba(251, 191, 36, 0.2);" onclick="openAddModal('vip')" title="添加重点广告">➕</button>
+                    </div>
+                    <div class="vip-card-title-wrapper">
+                        <span class="vip-card-icon">⭐</span>
+                        <h2 class="vip-card-title">重点广告</h2>
+                        <span class="vip-card-icon">⭐</span>
+                    </div>
+                </div>
+                <div class="vip-tags" id="vipTags">
+                    <!-- VIP标签将在这里动态生成 -->
+                </div>
             </div>
         </div>
 
-        <div class="action-buttons fade-in" style="animation-delay: 0.4s;">
-            <button class="btn btn-primary" onclick="openAddModal()">
-                ⚙️ 添加广告 📢
-            </button>
+        <!-- 板块卡片 -->
+        <div class="category-grid fade-in" style="animation-delay: 0.3s;">
+            <!-- 侠缘 -->
+            <div class="category-card xiayuan">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">💕</span>
+                        <span id="title-xiayuan">侠缘</span>
+                    </div>
+                    <div class="category-actions">
+                        <button class="btn-icon" onclick="editCategoryTitle('xiayuan')" title="编辑名称">✏️</button>
+                        <button class="btn-icon" onclick="openAddModal('xiayuan')" title="添加标签">➕</button>
+                    </div>
+                </div>
+                <div class="tags-container" id="tags-xiayuan">
+                    <div class="tags-empty">暂无内容</div>
+                </div>
+            </div>
+
+            <!-- 结义 -->
+            <div class="category-card jieyi">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🤝</span>
+                        <span id="title-jieyi">结义</span>
+                    </div>
+                    <div class="category-actions">
+                        <button class="btn-icon" onclick="editCategoryTitle('jieyi')" title="编辑名称">✏️</button>
+                        <button class="btn-icon" onclick="openAddModal('jieyi')" title="添加标签">➕</button>
+                    </div>
+                </div>
+                <div class="tags-container" id="tags-jieyi">
+                    <div class="tags-empty">暂无内容</div>
+                </div>
+            </div>
+
+            <!-- 师门 -->
+            <div class="category-card shimen">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🎓</span>
+                        <span id="title-shimen">师门</span>
+                    </div>
+                    <div class="category-actions">
+                        <button class="btn-icon" onclick="editCategoryTitle('shimen')" title="编辑名称">✏️</button>
+                        <button class="btn-icon" onclick="openAddModal('shimen')" title="添加标签">➕</button>
+                    </div>
+                </div>
+                <div class="tags-container" id="tags-shimen">
+                    <div class="tags-empty">暂无内容</div>
+                </div>
+            </div>
+
+            <!-- 徒弟 -->
+            <div class="category-card tudi">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🌱</span>
+                        <span id="title-tudi">徒弟</span>
+                    </div>
+                    <div class="category-actions">
+                        <button class="btn-icon" onclick="editCategoryTitle('tudi')" title="编辑名称">✏️</button>
+                        <button class="btn-icon" onclick="openAddModal('tudi')" title="添加标签">➕</button>
+                    </div>
+                </div>
+                <div class="tags-container" id="tags-tudi">
+                    <div class="tags-empty">暂无内容</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 成功案例板块 -->
+        <div class="success-section fade-in" style="animation-delay: 0.4s;">
+            <div class="category-card success">
+                <div class="category-header">
+                    <div class="category-title">
+                        <span class="category-icon">🎉</span>
+                        <span id="title-success">成功案例</span>
+                    </div>
+                    <div class="category-actions">
+                        <button class="btn-icon" onclick="editCategoryTitle('success')" title="编辑名称">✏️</button>
+                        <button class="btn-icon" onclick="openAddModal('success')" title="添加标签">➕</button>
+                    </div>
+                </div>
+                <div class="tags-container" id="tags-success">
+                    <div class="tags-empty">暂无内容</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- 操作按钮 -->
+        <div class="action-buttons fade-in" style="animation-delay: 0.5s;">
             <button class="btn btn-secondary" onclick="exportData()">
                 💾 导出数据
             </button>
@@ -676,54 +1003,50 @@
         <div class="modal-content">
             <button class="modal-close" onclick="closeModal()">×</button>
             
-            <div style="position: absolute; top: -1.5rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.5rem;">
-                <span style="font-size: 2.5rem;" class="float">🏮</span>
-                <span style="font-size: 2.5rem;" class="float" style="animation-delay: 0.5s;">🏮</span>
-            </div>
+            <h3 class="form-title" id="modalTitle">添加标签</h3>
             
-            <h3 class="form-title">添加新广告</h3>
-            <div style="display: flex; align-items: center; justify-content: center; gap: 0.5rem; margin-bottom: 1.5rem;">
-                <div style="height: 2px; width: 3rem; background: linear-gradient(90deg, #991b1b, #dc2626); border-radius: 9999px;"></div>
-                <span style="font-size: 1.25rem;">✨</span>
-                <div style="height: 2px; width: 3rem; background: linear-gradient(90deg, #dc2626, #991b1b); border-radius: 9999px;"></div>
-            </div>
-            
-            <form id="adForm" onsubmit="saveAd(event)">
+            <form id="tagForm" onsubmit="saveTag(event)">
                 <div class="form-group">
-                    <label class="form-label">分类（可选）</label>
-                    <input type="text" id="category" class="form-input" placeholder="例如：重点广告、以下宝侠缘">
-                    <p style="font-size: 0.875rem; color: #6b7280; margin-top: 0.25rem;">相同分类的广告会自动分组显示</p>
+                    <label class="form-label">标签内容 <span style="color: #dc2626;">*</span></label>
+                    <input type="text" id="tagContent" class="form-input" placeholder="输入标签内容..." required>
                 </div>
 
                 <div class="form-group">
-                    <label class="form-label">广告内容 <span style="color: #dc2626;">*</span></label>
-                    <textarea id="content" class="form-textarea" placeholder="输入广告内容...&#10;支持多行文本" required></textarea>
-                </div>
-
-                <div class="form-checkbox-group">
-                    <input type="checkbox" id="isVip" class="form-checkbox">
-                    <label for="isVip" style="flex: 1; color: #374151; font-weight: 600;">
-                        <div>设为VIP广告</div>
-                        <div style="font-size: 0.875rem; color: #6b7280; font-weight: normal;">VIP广告将以红色加粗的大字体显示</div>
-                    </label>
+                    <label class="form-label">VIP等级</label>
+                    <div class="vip-level-selector">
+                        <div class="vip-level-option level-0 active" onclick="selectVipLevel(0)">
+                            <div>普通</div>
+                            <div style="font-size: 0.75rem;">Lv.0</div>
+                        </div>
+                        <div class="vip-level-option level-1" onclick="selectVipLevel(1)">
+                            <div>淡红</div>
+                            <div style="font-size: 0.75rem;">Lv.1</div>
+                        </div>
+                        <div class="vip-level-option level-2" onclick="selectVipLevel(2)">
+                            <div>红色</div>
+                            <div style="font-size: 0.75rem;">Lv.2</div>
+                        </div>
+                        <div class="vip-level-option level-3" onclick="selectVipLevel(3)">
+                            <div>深红</div>
+                            <div style="font-size: 0.75rem;">Lv.3</div>
+                        </div>
+                        <div class="vip-level-option level-4" onclick="selectVipLevel(4)">
+                            <div>闪耀</div>
+                            <div style="font-size: 0.75rem;">Lv.4</div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="form-buttons">
-                    <button type="submit" class="btn-submit">➕ 添加广告</button>
+                    <button type="submit" class="btn-submit">✅ 保存</button>
                     <button type="button" class="btn-cancel" onclick="closeModal()">取消</button>
                 </div>
             </form>
-            
-            <div style="position: absolute; bottom: -1rem; left: 50%; transform: translateX(-50%); display: flex; gap: 0.75rem;">
-                <span style="font-size: 1.5rem;" class="sparkle">✨</span>
-                <span style="font-size: 1.5rem;" class="sparkle" style="animation-delay: 0.5s;">✨</span>
-                <span style="font-size: 1.5rem;" class="sparkle" style="animation-delay: 1s;">✨</span>
-            </div>
         </div>
     </div>
 
     <!-- Music Player -->
-    <div class="music-player fade-in" style="animation-delay: 0.5s;">
+    <div class="music-player fade-in" style="animation-delay: 0.6s;">
         <div class="music-controls">
             <button class="btn-music play float" onclick="toggleMusic()" id="playBtn">🎵</button>
             <button class="btn-music mute" onclick="toggleMute()" id="muteBtn">🔊</button>
@@ -739,126 +1062,144 @@
 
     <script>
         // 数据存储键名
-        var STORAGE_KEY = 'group_ads_data';
+        var STORAGE_KEY = 'group_ads_data_v2';
+        var TITLES_KEY = 'category_titles';
         
-        // 当前编辑的广告ID
-        var editingAdId = null;
+        // 当前编辑的标签
+        var editingTag = null;
+        var currentCategory = null;
+        var selectedVipLevel = 0;
 
         // 初始化默认数据
-        var defaultAds = [
-            {
-                id: '1',
-                content: '成功禁闭泡菜✖️小羊编内师徒/知知✖️山外左编内快缘\n泡菜宝✖️酸鱼宝 哪老师✖️小羊师编内师徒\n岭野✖️猫老师编外师徒 知知✖️星月老师 编外师徒\n猫说不知✖️燕浮星编内徒弟 泡菜✖️猫说不知编内师博\n岭野✖️阮星叶 泡菜 ✖️ 知知(编内师徒)',
-                isVip: false,
-                category: ''
-            },
-            {
-                id: '2',
-                content: '编（半A长草期）找编外师博/白衣将世聘师父',
-                isVip: true,
-                category: '重点广告'
-            },
-            {
-                id: '3',
-                content: '柳掷影、栀谊、酸辣鱼',
-                isVip: false,
-                category: '以下宝聘侠缘'
-            },
-            {
-                id: '4',
-                content: '嫒玖又尊侠缘',
-                isVip: true,
-                category: '以下宝聘徒✖️'
-            },
-            {
-                id: '5',
-                content: '腰骨、冬季、编',
-                isVip: false,
-                category: '以下宝聘徒✖️'
-            },
-            {
-                id: '6',
-                content: '冬季(D爱打麻将的)、洋羊米(D师父师姐师兄)、Dii(D个师父)、羊舌汤(聘师父)、淋冬又何时(聘师博)',
-                isVip: true,
-                category: '以下宝涵响门'
-            },
-            {
-                id: '7',
-                content: '步向远、不咏月、董艳、归宝、青木枝(加分符·梨)、缨',
-                isVip: false,
-                category: '以下宝涵徒弟'
-            }
-        ];
+        var defaultData = {
+            xiayuan: [
+                { id: '1', content: '柳掷影', vipLevel: 0 },
+                { id: '2', content: '栀谊', vipLevel: 1 },
+                { id: '3', content: '酸辣鱼', vipLevel: 2 }
+            ],
+            jieyi: [
+                { id: '4', content: '泡菜✖️小羊', vipLevel: 1 },
+                { id: '5', content: '知知✖️山外左', vipLevel: 0 }
+            ],
+            shimen: [
+                { id: '6', content: '哪老师✖️小羊老师', vipLevel: 2 },
+                { id: '7', content: '岭野✖️猫老师', vipLevel: 1 },
+                { id: '8', content: '知知✖️星月老师', vipLevel: 0 }
+            ],
+            tudi: [
+                { id: '9', content: '步向远', vipLevel: 0 },
+                { id: '10', content: '不咏月', vipLevel: 1 },
+                { id: '11', content: '董艳', vipLevel: 0 },
+                { id: '12', content: '归宝', vipLevel: 2 }
+            ],
+            vip: [
+                { id: '13', content: '编（半A长草期）找编外师博', vipLevel: 4 },
+                { id: '14', content: '白衣将世聘师父', vipLevel: 4 }
+            ],
+            success: [
+                { id: '15', content: '泡菜✖️小羊成功结缘', vipLevel: 3 },
+                { id: '16', content: '知知✖️山外左成功结义', vipLevel: 2 }
+            ]
+        };
+
+        var defaultTitles = {
+            xiayuan: '侠缘',
+            jieyi: '结义',
+            shimen: '师门',
+            tudi: '徒弟',
+            success: '成功案例'
+        };
 
         // 加载数据
-        function loadAds() {
+        function loadData() {
             var stored = localStorage.getItem(STORAGE_KEY);
             if (stored) {
                 try {
                     return JSON.parse(stored);
                 } catch (e) {
                     console.error('Failed to parse stored data:', e);
-                    return defaultAds;
+                    return defaultData;
                 }
             }
-            return defaultAds;
+            return defaultData;
+        }
+
+        // 加载标题
+        function loadTitles() {
+            var stored = localStorage.getItem(TITLES_KEY);
+            if (stored) {
+                try {
+                    return JSON.parse(stored);
+                } catch (e) {
+                    return defaultTitles;
+                }
+            }
+            return defaultTitles;
         }
 
         // 保存数据
-        function saveAdsToStorage(ads) {
-            localStorage.setItem(STORAGE_KEY, JSON.stringify(ads));
+        function saveData(data) {
+            localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
         }
 
-        // 渲染广告列表
-        function renderAds() {
-            var ads = loadAds();
-            var adList = document.getElementById('adList');
-            
-            // 按分类分组
-            var grouped = {};
-            for (var i = 0; i < ads.length; i++) {
-                var ad = ads[i];
-                var category = ad.category || 'default';
-                if (!grouped[category]) {
-                    grouped[category] = [];
-                }
-                grouped[category].push(ad);
-            }
+        // 保存标题
+        function saveTitles(titles) {
+            localStorage.setItem(TITLES_KEY, JSON.stringify(titles));
+        }
 
+        // 渲染所有标签
+        function renderAllTags() {
+            var data = loadData();
+            var titles = loadTitles();
+            
+            // 更新标题
+            for (var key in titles) {
+                if (titles.hasOwnProperty(key)) {
+                    var titleElement = document.getElementById('title-' + key);
+                    if (titleElement) {
+                        titleElement.textContent = titles[key];
+                    }
+                }
+            }
+            
+            // 渲染VIP区域
+            renderCategory('vip', data.vip || []);
+            
+            // 渲染各个板块
+            renderCategory('xiayuan', data.xiayuan || []);
+            renderCategory('jieyi', data.jieyi || []);
+            renderCategory('shimen', data.shimen || []);
+            renderCategory('tudi', data.tudi || []);
+            renderCategory('success', data.success || []);
+        }
+
+        // 渲染单个分类
+        function renderCategory(category, tags) {
+            var container = document.getElementById(category === 'vip' ? 'vipTags' : 'tags-' + category);
+            if (!container) return;
+            
+            if (tags.length === 0) {
+                if (category !== 'vip') {
+                    container.innerHTML = '<div class="tags-empty">暂无内容</div>';
+                } else {
+                    container.innerHTML = '';
+                }
+                return;
+            }
+            
             var html = '';
-            
-            for (var category in grouped) {
-                if (grouped.hasOwnProperty(category)) {
-                    var categoryAds = grouped[category];
-                    
-                    if (category !== 'default') {
-                        var hasVip = false;
-                        for (var j = 0; j < categoryAds.length; j++) {
-                            if (categoryAds[j].isVip) {
-                                hasVip = true;
-                                break;
-                            }
-                        }
-                        html += '<div class="ad-category ' + (hasVip ? 'vip' : '') + '">' + category + '：</div>';
-                    }
-
-                    for (var k = 0; k < categoryAds.length; k++) {
-                        var ad = categoryAds[k];
-                        html += '<div class="ad-item" data-id="' + ad.id + '">';
-                        html += '<div class="ad-content ' + (ad.isVip ? 'vip' : '') + '">' + escapeHtml(ad.content) + '</div>';
-                        html += '<div class="ad-actions">';
-                        html += '<button class="btn-action btn-edit" onclick="editAd(\'' + ad.id + '\')">✏️</button>';
-                        html += '<button class="btn-action btn-delete" onclick="deleteAd(\'' + ad.id + '\')">🗑️</button>';
-                        html += '</div>';
-                        if (k < categoryAds.length - 1 && category === 'default') {
-                            html += '<div class="ad-item-divider"></div>';
-                        }
-                        html += '</div>';
-                    }
-                }
+            for (var i = 0; i < tags.length; i++) {
+                var tag = tags[i];
+                html += '<div class="tag level-' + tag.vipLevel + '">';
+                html += '<span>' + escapeHtml(tag.content) + '</span>';
+                html += '<div class="tag-actions">';
+                html += '<button class="tag-btn tag-btn-edit" onclick="editTag(\'' + category + '\', \'' + tag.id + '\')">✏️</button>';
+                html += '<button class="tag-btn tag-btn-delete" onclick="deleteTag(\'' + category + '\', \'' + tag.id + '\')">🗑️</button>';
+                html += '</div>';
+                html += '</div>';
             }
-
-            adList.innerHTML = html;
+            
+            container.innerHTML = html;
         }
 
         // HTML转义
@@ -868,10 +1209,26 @@
             return div.innerHTML;
         }
 
+        // 选择VIP等级
+        function selectVipLevel(level) {
+            selectedVipLevel = level;
+            var options = document.querySelectorAll('.vip-level-option');
+            for (var i = 0; i < options.length; i++) {
+                options[i].classList.remove('active');
+            }
+            options[level].classList.add('active');
+        }
+
         // 打开添加弹窗
-        function openAddModal() {
-            editingAdId = null;
-            document.getElementById('adForm').reset();
+        function openAddModal(category) {
+            currentCategory = category;
+            editingTag = null;
+            selectedVipLevel = category === 'vip' ? 4 : 0;
+            
+            document.getElementById('modalTitle').textContent = '添加标签';
+            document.getElementById('tagContent').value = '';
+            selectVipLevel(selectedVipLevel);
+            
             document.getElementById('modal').classList.add('active');
             document.body.style.overflow = 'hidden';
         }
@@ -880,152 +1237,118 @@
         function closeModal() {
             document.getElementById('modal').classList.remove('active');
             document.body.style.overflow = 'auto';
-            editingAdId = null;
-            
-            // 清除编辑表单
-            var editForms = document.querySelectorAll('.edit-form');
-            for (var i = 0; i < editForms.length; i++) {
-                editForms[i].parentNode.removeChild(editForms[i]);
-            }
+            editingTag = null;
+            currentCategory = null;
         }
 
-        // 保存广告
-        function saveAd(event) {
+        // 保存标签
+        function saveTag(event) {
             event.preventDefault();
             
-            var content = document.getElementById('content').value.trim();
-            var category = document.getElementById('category').value.trim();
-            var isVip = document.getElementById('isVip').checked;
-
+            var content = document.getElementById('tagContent').value.trim();
             if (!content) {
-                alert('请输入广告内容');
+                alert('请输入标签内容');
                 return;
             }
 
-            var ads = loadAds();
+            var data = loadData();
             
-            if (editingAdId) {
-                // 更新现有广告
-                for (var i = 0; i < ads.length; i++) {
-                    if (ads[i].id === editingAdId) {
-                        ads[i].content = content;
-                        ads[i].category = category || undefined;
-                        ads[i].isVip = isVip;
+            if (editingTag) {
+                // 更新现有标签
+                var category = editingTag.category;
+                var tags = data[category] || [];
+                for (var i = 0; i < tags.length; i++) {
+                    if (tags[i].id === editingTag.id) {
+                        tags[i].content = content;
+                        tags[i].vipLevel = selectedVipLevel;
                         break;
                     }
                 }
             } else {
-                // 添加新广告
-                var newAd = {
+                // 添加新标签
+                if (!data[currentCategory]) {
+                    data[currentCategory] = [];
+                }
+                var newTag = {
                     id: Date.now().toString(),
                     content: content,
-                    category: category || undefined,
-                    isVip: isVip
+                    vipLevel: selectedVipLevel
                 };
-                ads.push(newAd);
+                data[currentCategory].push(newTag);
             }
 
-            saveAdsToStorage(ads);
-            renderAds();
+            saveData(data);
+            renderAllTags();
             closeModal();
         }
 
-        // 编辑广告
-        function editAd(id) {
-            var ads = loadAds();
-            var ad = null;
-            for (var i = 0; i < ads.length; i++) {
-                if (ads[i].id === id) {
-                    ad = ads[i];
-                    break;
-                }
-            }
-            if (!ad) return;
-
-            var adItem = document.querySelector('[data-id="' + id + '"]');
-            var existingForm = adItem.querySelector('.edit-form');
+        // 编辑标签
+        function editTag(category, id) {
+            var data = loadData();
+            var tags = data[category] || [];
+            var tag = null;
             
-            if (existingForm) {
-                adItem.removeChild(existingForm);
-                return;
-            }
-
-            var formHtml = '<div class="edit-form">';
-            formHtml += '<div class="form-group">';
-            formHtml += '<label class="form-label">分类（可选）</label>';
-            formHtml += '<input type="text" class="form-input" value="' + (ad.category || '') + '" id="edit-category-' + id + '" placeholder="例如：重点广告、以下宝聘侠缘">';
-            formHtml += '</div>';
-            formHtml += '<div class="form-group">';
-            formHtml += '<label class="form-label">广告内容</label>';
-            formHtml += '<textarea class="form-textarea" id="edit-content-' + id + '" placeholder="输入广告内容...">' + escapeHtml(ad.content) + '</textarea>';
-            formHtml += '</div>';
-            formHtml += '<div class="form-checkbox-group">';
-            formHtml += '<input type="checkbox" class="form-checkbox" id="edit-vip-' + id + '" ' + (ad.isVip ? 'checked' : '') + '>';
-            formHtml += '<label for="edit-vip-' + id + '" style="color: #1f2937; font-weight: 600;">VIP广告（红色加粗显示）</label>';
-            formHtml += '</div>';
-            formHtml += '<div class="form-buttons">';
-            formHtml += '<button class="btn-submit" onclick="updateAd(\'' + id + '\')">✅ 保存</button>';
-            formHtml += '<button class="btn-cancel" onclick="cancelEdit(\'' + id + '\')">❌ 取消</button>';
-            formHtml += '</div>';
-            formHtml += '</div>';
-
-            adItem.insertAdjacentHTML('beforeend', formHtml);
-        }
-
-        // 更新广告
-        function updateAd(id) {
-            var content = document.getElementById('edit-content-' + id).value.trim();
-            var category = document.getElementById('edit-category-' + id).value.trim();
-            var isVip = document.getElementById('edit-vip-' + id).checked;
-
-            if (!content) {
-                alert('请输入广告内容');
-                return;
-            }
-
-            var ads = loadAds();
-            
-            for (var i = 0; i < ads.length; i++) {
-                if (ads[i].id === id) {
-                    ads[i].content = content;
-                    ads[i].category = category || undefined;
-                    ads[i].isVip = isVip;
+            for (var i = 0; i < tags.length; i++) {
+                if (tags[i].id === id) {
+                    tag = tags[i];
                     break;
                 }
             }
             
-            saveAdsToStorage(ads);
-            renderAds();
+            if (!tag) return;
+            
+            editingTag = { category: category, id: id };
+            currentCategory = category;
+            
+            document.getElementById('modalTitle').textContent = '编辑标签';
+            document.getElementById('tagContent').value = tag.content;
+            selectVipLevel(tag.vipLevel);
+            
+            document.getElementById('modal').classList.add('active');
+            document.body.style.overflow = 'hidden';
         }
 
-        // 取消编辑
-        function cancelEdit(id) {
-            var adItem = document.querySelector('[data-id="' + id + '"]');
-            var editForm = adItem.querySelector('.edit-form');
-            if (editForm) {
-                adItem.removeChild(editForm);
-            }
-        }
+        // 删除标签
+        function deleteTag(category, id) {
+            if (!confirm('确定要删除这个标签吗？')) return;
 
-        // 删除广告
-        function deleteAd(id) {
-            if (!confirm('确定要删除这条广告吗？')) return;
-
-            var ads = loadAds();
+            var data = loadData();
+            var tags = data[category] || [];
             var filtered = [];
-            for (var i = 0; i < ads.length; i++) {
-                if (ads[i].id !== id) {
-                    filtered.push(ads[i]);
+            
+            for (var i = 0; i < tags.length; i++) {
+                if (tags[i].id !== id) {
+                    filtered.push(tags[i]);
                 }
             }
-            saveAdsToStorage(filtered);
-            renderAds();
+            
+            data[category] = filtered;
+            saveData(data);
+            renderAllTags();
+        }
+
+        // 编辑分类标题
+        function editCategoryTitle(category) {
+            var titles = loadTitles();
+            var currentTitle = titles[category];
+            var newTitle = prompt('请输入新的板块名称：', currentTitle);
+            
+            if (newTitle && newTitle.trim() !== '') {
+                titles[category] = newTitle.trim();
+                saveTitles(titles);
+                renderAllTags();
+            }
         }
 
         // 导出数据
         function exportData() {
-            var ads = loadAds();
-            var dataStr = JSON.stringify(ads, null, 2);
+            var data = loadData();
+            var titles = loadTitles();
+            var exportData = {
+                data: data,
+                titles: titles
+            };
+            var dataStr = JSON.stringify(exportData, null, 2);
             var dataBlob = new Blob([dataStr], { type: 'application/json' });
             var url = URL.createObjectURL(dataBlob);
             var link = document.createElement('a');
@@ -1043,14 +1366,15 @@
             var reader = new FileReader();
             reader.onload = function(e) {
                 try {
-                    var ads = JSON.parse(e.target.result);
-                    if (Array.isArray(ads)) {
-                        saveAdsToStorage(ads);
-                        renderAds();
-                        alert('数据导入成功！');
-                    } else {
-                        alert('数据格式错误！');
+                    var imported = JSON.parse(e.target.result);
+                    if (imported.data) {
+                        saveData(imported.data);
                     }
+                    if (imported.titles) {
+                        saveTitles(imported.titles);
+                    }
+                    renderAllTags();
+                    alert('数据导入成功！');
                 } catch (error) {
                     alert('导入失败：' + error.message);
                 }
@@ -1059,13 +1383,22 @@
             event.target.value = '';
         }
 
+        // 编辑群公告
+        function editNotice() {
+            var noticeText = document.getElementById('noticeText').textContent;
+            var newNotice = prompt('请输入新的群公告内容：', noticeText);
+            
+            if (newNotice && newNotice.trim() !== '') {
+                document.getElementById('noticeText').textContent = newNotice.trim();
+            }
+        }
+
         // 音乐播放器
         var isPlaying = false;
         var isMuted = false;
         var audio = document.getElementById('bgMusic');
-        var musicAutoplayAttempted = false; // 防止重复尝试
+        var musicAutoplayAttempted = false;
 
-        // "邪道"自动播放函数 - 监听各种用户交互
         function tryAutoPlay() {
             if (!musicAutoplayAttempted && !isPlaying) {
                 musicAutoplayAttempted = true;
@@ -1073,16 +1406,14 @@
                     isPlaying = true;
                     document.getElementById('playBtn').textContent = '⏸️';
                     document.getElementById('musicStatus').textContent = '🎵 播放中';
-                    // 播放成功后移除所有监听器
                     removeAutoplayListeners();
                 }).catch(function(err) {
                     console.log('自动播放失败:', err);
-                    musicAutoplayAttempted = false; // 允许再次尝试
+                    musicAutoplayAttempted = false;
                 });
             }
         }
 
-        // 移除所有自动播放监听器
         function removeAutoplayListeners() {
             document.removeEventListener('mousemove', tryAutoPlay);
             document.removeEventListener('mousedown', tryAutoPlay);
@@ -1093,19 +1424,12 @@
             document.removeEventListener('touchmove', tryAutoPlay);
         }
 
-        // 添加多种事件监听 - "邪道"方式
         function setupAutoplayListeners() {
-            // 鼠标移动
             document.addEventListener('mousemove', tryAutoPlay, { once: false, passive: true });
-            // 鼠标按下
             document.addEventListener('mousedown', tryAutoPlay, { once: false, passive: true });
-            // 点击
             document.addEventListener('click', tryAutoPlay, { once: false, passive: true });
-            // 键盘按下
             document.addEventListener('keydown', tryAutoPlay, { once: false, passive: true });
-            // 滚动
             document.addEventListener('scroll', tryAutoPlay, { once: false, passive: true });
-            // 触摸事件（移动端）
             document.addEventListener('touchstart', tryAutoPlay, { once: false, passive: true });
             document.addEventListener('touchmove', tryAutoPlay, { once: false, passive: true });
         }
@@ -1136,9 +1460,8 @@
         // 初始化
         if (document.readyState === 'loading') {
             document.addEventListener('DOMContentLoaded', function() {
-                renderAds();
+                renderAllTags();
                 
-                // 尝试自动播放音乐
                 audio.play().then(function() {
                     isPlaying = true;
                     document.getElementById('playBtn').textContent = '⏸️';
@@ -1149,9 +1472,8 @@
                 });
             });
         } else {
-            renderAds();
+            renderAllTags();
             
-            // 尝试自动播放音乐
             audio.play().then(function() {
                 isPlaying = true;
                 document.getElementById('playBtn').textContent = '⏸️';
