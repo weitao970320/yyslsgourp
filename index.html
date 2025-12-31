@@ -1070,43 +1070,61 @@
         var currentCategory = null;
         var selectedVipLevel = 0;
 
-        // 初始化默认数据
+         // 初始化默认数据
         var defaultData = {
             xiayuan: [
-                { id: '1', content: '柳掷影', vipLevel: 0 },
-                { id: '2', content: '栀谊', vipLevel: 1 },
-                { id: '3', content: '酸辣鱼', vipLevel: 2 }
+                { id: '1', content: '柳拂影', vipLevel: 1 },
+                { id: '2', content: '栀道', vipLevel: 1 },
+                { id: '3', content: '酸辣鱼', vipLevel: 1 },
+                { id: '1767169011568', content: '周展逸', vipLevel: 1 },
+                { id: '1767169018718', content: '姝玖蹲侠缘', vipLevel: 4 }
             ],
             jieyi: [
-                { id: '4', content: '泡菜✖️小羊', vipLevel: 1 },
-                { id: '5', content: '知知✖️山外左', vipLevel: 0 }
+                { id: '4', content: '腥骨', vipLevel: 0 },
+                { id: '5', content: '冬季', vipLevel: 0 },
+                { id: '1767169048350', content: '缊', vipLevel: 0 },
+                { id: '1767169056884', content: '周展逸', vipLevel: 0 }
             ],
             shimen: [
-                { id: '6', content: '哪老师✖️小羊老师', vipLevel: 2 },
-                { id: '7', content: '岭野✖️猫老师', vipLevel: 1 },
-                { id: '8', content: '知知✖️星月老师', vipLevel: 0 }
+                { id: '6', content: '冬季(D爱打麻将的)', vipLevel: 0 },
+                { id: '7', content: '洋芋米(D师父师姐师兄)', vipLevel: 0 },
+                { id: '8', content: '万珏Dii(D个师父)', vipLevel: 0 },
+                { id: '1767169136236', content: '羊舌汤(蹲师父)', vipLevel: 3 },
+                { id: '1767169144778', content: '淋冬又何时(蹲师傅)', vipLevel: 0 },
+                { id: '1767169153036', content: '吴彦祖你也打(蹲无名师傅)', vipLevel: 0 },
+                { id: '1767169159286', content: '雨天与歌', vipLevel: 0 }
             ],
             tudi: [
                 { id: '9', content: '步向远', vipLevel: 0 },
-                { id: '10', content: '不咏月', vipLevel: 1 },
-                { id: '11', content: '董艳', vipLevel: 0 },
-                { id: '12', content: '归宝', vipLevel: 2 }
+                { id: '10', content: '不映月', vipLevel: 0 },
+                { id: '11', content: '堇祀', vipLevel: 0 },
+                { id: '12', content: '归宝', vipLevel: 0 },
+                { id: '1767169206968', content: '青木枝(加分符.梨）', vipLevel: 0 },
+                { id: '1767169214068', content: '缥', vipLevel: 0 }
             ],
             vip: [
-                { id: '13', content: '编（半A长草期）找编外师博', vipLevel: 4 },
-                { id: '14', content: '白衣将世聘师父', vipLevel: 4 }
+                { id: '13', content: '缊(半A长草期)找编外师傅', vipLevel: 4 },
+                { id: '1767168976335', content: '白衣祸世蹲师父', vipLevel: 4 }
             ],
             success: [
-                { id: '15', content: '泡菜✖️小羊成功结缘', vipLevel: 3 },
-                { id: '16', content: '知知✖️山外左成功结义', vipLevel: 2 }
+                { id: '1767167563691', content: '泡菜X小羊编内师徒', vipLevel: 2 },
+                { id: '1767168932336', content: '知知X山外云编内侠缘', vipLevel: 2 },
+                { id: '1767168940986', content: '泡菜宝X酸辣鱼宝', vipLevel: 2 },
+                { id: '1767168949969', content: '卿老师X小羊老师编内师徒', vipLevel: 2 },
+                { id: '1767169259417', content: '屿野X猫老师编外师徒', vipLevel: 2 },
+                { id: '1767169269767', content: '知知X星月老师 编外师徒', vipLevel: 2 },
+                { id: '1767169281592', content: '猫说不知X燕浮星编内徒弟', vipLevel: 2 },
+                { id: '1767169290025', content: '泡菜X猫说不知编内师博', vipLevel: 2 },
+                { id: '1767169297566', content: '屿野X阮星叶', vipLevel: 2 },
+                { id: '1767169303766', content: '泡菜X知知(编内师徒)', vipLevel: 2 }
             ]
         };
 
         var defaultTitles = {
-            xiayuan: '侠缘',
-            jieyi: '结义',
-            shimen: '师门',
-            tudi: '徒弟',
+            xiayuan: '以下宝蹲侠缘',
+            jieyi: '以下宝蹲结义',
+            shimen: '以下宝滴师门',
+            tudi: '以下宝滴徒弟',
             success: '成功案例'
         };
 
